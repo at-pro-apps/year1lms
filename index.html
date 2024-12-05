@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Page</title>
+    <!-- Preload CSS and images for faster loading -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="BG.png" as="image" type="image/png" crossorigin="anonymous">
+    <link rel="preload" href="Start 1.png" as="image" type="image/png" crossorigin="anonymous">
+    <link rel="preload" href="Start.png" as="image" type="image/png" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <img src="BG.png" alt="Background" class="background" loading="lazy">
-        <img src="Start 1.png" alt="Top Right Element" class="top-right" loading="lazy">
-        <img src="Start.png" alt="Bottom Element" class="bottom-cover start-image" loading="lazy">
+        <!-- Use modern image formats and sizes to improve load speed -->
+        <img src="BG.png" alt="Background" class="background" loading="lazy" width="1920" height="1080">
+        <img src="Start 1.png" alt="Top Right Element" class="top-right" loading="lazy" width="300" height="300">
+        <img src="Start.png" alt="Bottom Element" class="bottom-cover start-image" loading="lazy" width="600" height="400">
         <button class="start-btn" onclick="startTransition()">Start</button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Load JavaScript with the defer attribute to avoid blocking rendering -->
+    <script src="script.js" defer></script>
 </body>
 </html>
