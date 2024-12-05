@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Page</title>
+    <link rel="stylesheet" href="subject.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Lecture 1 -->
+        <div class="lecture">
+            <div class="lecture-header" onclick="toggleLecture(1)">
+                <img src="video-icon.png" alt="Video Icon" class="icon">
+                <span>Lecture 1</span>
+                
+                <button id="playButton1" class="play-button">Browse</button>
+            </div>
+            <div id="lectureContent1" class="lecture-content">
+                <video id="video1" width="100%" controls>
+                    <source src="videos/lecture1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <a href="pdf/lecture1.pdf" class="download-button" download>Download PDF</a>
+            </div>
+        </div>
+<!-- Lecture 2 -->
+        <div class="lecture">
+            <div class="lecture-header" onclick="toggleLecture(2)">
+                <img src="video-icon.png" alt="Video Icon" class="icon">
+                <span>Lecture 2</span>
+                
+                <button id="playButton2" class="play-button">Browse</button>
+            </div>
+            <div id="lectureContent2" class="lecture-content">
+                <video id="video2" width="100%" controls>
+                    <source src="videos/lecture2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <a href="pdf/lecture2.pdf" class="download-button" download>Download PDF</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="subject.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Page</title>
+    <link rel="stylesheet" href="appcss.css"> <!-- Updated CSS file name -->
+</head>
+<body>
+    <div class="container">
+        <img src="BG.png" alt="Background" class="background">
+        <img src="Login Box.png" alt="Login Box" class="login-box">
+
+        <div class="login-form">
+            <div class="input-group">
+                <label for="username" class="input-label">
+                    <img src="username-icon.png" alt="Username Icon" class="input-icon"> <!-- Add your username icon path -->
+                    Username
+                </label>
+                <input type="text" id="username" placeholder="Enter your username" class="input-field" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password" class="input-label">
+                    <img src="password-icon.png" alt="Password Icon" class="input-icon"> <!-- Add your password icon path -->
+                    Password
+                </label>
+                <input type="password" id="password" placeholder="Enter your password" class="input-field" required>
+            </div>
+            
+            <button class="login-btn" onclick="handleLogin()">Login</button>
+        </div>
+    </div>
+
+    <script src="appscript.js"></script> <!-- Updated JavaScript file name -->
+</body>
+</html>

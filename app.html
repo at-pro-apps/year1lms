@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Page</title>
+    <link rel="stylesheet" href="appcss.css"> <!-- Updated CSS file name -->
+
+    <!-- Firebase SDK for new version -->
+    <script type="module">
+        // Import Firebase SDK functions from the new modular SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDT_93Ius9qmWSSFxIlAZ9pcRnbVCji7G0",
+            authDomain: "portsaid-c80cd.firebaseapp.com",
+            databaseURL: "https://portsaid-c80cd-default-rtdb.firebaseio.com",
+            projectId: "portsaid-c80cd",
+            storageBucket: "portsaid-c80cd.appspot.com",
+            messagingSenderId: "263720618753",
+            appId: "1:263720618753:web:37e6f2e428ced7dfb7e900",
+            measurementId: "G-2LS5JZPCM4"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+
+        // Function to handle login
+        function handleLogin() {
+            const email = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                alert("Please enter both email and password.");
+                return;
+            }
+
+            // Firebase login with email and password
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                // Play success sound
+                const successSound = new Audio('notification-interface-success-positive-corrects-132471.mp3');
+                successSound.play();
+
+                // Hide login form and related elements
+                document.querySelector('.login-form').style.display = 'none';
+
+                // Show cards smoothly
+                showCards();
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                alert("Login failed: " + errorMessage);
+            });
+        }
+
+        // Function to create and display cards
+        function showCards() {
+            const cardImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png"];
+            const cardLinks = ["subject1.html", "subject2.html", "subject3.html", "subject4.html", "subject5.html", "subject6.html", "subject7.html", "subject8.html"];
+            const cardContainer = document.createElement("div");
+            cardContainer.className = "card-container";
+
+            cardImages.forEach((imgSrc, index) => {
+                const card = document.createElement("div");
+                card.className = "card";
+                const img = document.createElement("img");
+                img.src = imgSrc;
+                img.alt = "Card " + (index + 1);
+                card.appendChild(img);
+                card.onclick = function() {
+                    window.location.href = cardLinks[index];
+                };
+                cardContainer.appendChild(card);
+            });
+
+            // Append card container to body and scroll smoothly
+            document.body.appendChild(cardContainer);
+            cardContainer.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Attach the handleLogin function to the window object
+        window.handleLogin = handleLogin;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Background Image -->
+        <img src="BG2.png" alt="Background" class="background">
+
+        <!-- Login Form -->
+        <div class="login-form">
+            <div class="input-group">
+                <label for="username" class="input-label">
+                    <img src="username-icon.png" alt="Username Icon" class="input-icon">
+                    Username
+                </label>
+                <input type="email" id="username" placeholder="Enter your email" class="input-field">
+            </div>
+            <div class="input-group">
+                <label for="password" class="input-label">
+                    <img src="password-icon.png" alt="Password Icon" class="input-icon">
+                    Password
+                </label>
+                <input type="password" id="password" placeholder="Enter your password" class="input-field">
+            </div>
+            <button class="login-btn" onclick="handleLogin()">Login</button>
+        </div>
+    </div>
+
+    <script src="appscript.js"></script>
+</body>
+</html>

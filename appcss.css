@@ -1,0 +1,149 @@
+/* Ensure background stays visible */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep background behind everything */
+}
+
+/* Login content and form layout */
+.login-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Adjust based on your design */
+    margin: 0 auto; /* Center the content */
+    z-index: 1; /* Ensure it's above the background */
+}
+
+.faculty-photo {
+    max-height: 630px; /* Adjust photo to full viewport height */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Use absolute positioning */
+    left: 55%;
+    top: 0; /* Align to the top */
+    margin: 0; /* Remove any margins */
+    z-index: -1; /* Place behind the login form */
+}
+
+
+
+/* Login Box */
+.login-box {
+    width: 400px;
+    height: auto;
+    margin-right: 20px; /* Space between login box and faculty photo */
+}
+
+/* Login form container */
+.login-form {
+    position: absolute;
+    top: 60%;
+    left: 21%;
+    transform: translate(-50%, -50%); /* Center the form within the page */
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    text-align: center;
+    z-index: 2; /* Make sure form is above background */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for clarity */
+    border-radius: 15px;
+}
+
+/* Input group styling */
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+    text-align: left;
+}
+
+.input-icon {
+    position: absolute;
+    top: 70%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+}
+
+.input-field {
+    width: 80%;
+    padding: 10px 10px 10px 40px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: rgba(0, 0, 255, 0.3);
+    color: #fff;
+}
+
+.input-field::placeholder {
+    color: #fff;
+}
+
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the cards */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 40px;
+    background-image: url('BG.png'); /* Same background as page */
+    background-size: cover;
+    background-position: center;
+    animation: fadeIn 0.5s ease-in-out;
+    z-index: 2; /* Make sure the cards are above the background */
+}
+
+.card {
+    width: 300px;
+    height: 500px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Smooth fade-in effect for cards */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

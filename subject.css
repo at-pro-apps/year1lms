@@ -1,0 +1,97 @@
+/* Set the background image and cover the whole page */
+body {
+    background: url('BG.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Helvetica Neue', sans-serif; /* Changed font here */
+    color: white;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container styling for centering content */
+.container {
+    width: 80%;
+    max-width: 1000px;
+}
+
+/* Glossmorphism effect for each lecture card */
+.lecture {
+    background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+    backdrop-filter: blur(10px); /* glassmorphism effect */
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+}
+
+/* Lecture header styles for titles and buttons */
+.lecture-header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    cursor: pointer;
+    color: #0539f5;
+    gap: 10px; /* Add space between icon and title */
+}
+
+/* Icon styling inside the lecture header */
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Title styling (for better alignment and spacing) */
+.lecture-header span {
+    flex-grow: 1; /* Allow the title to take up the remaining space */
+    text-align: left; /* Align text to the left */
+    font-family: 'Helvetica Neue', sans-serif; /* Change font for title */
+}
+
+/* Play button */
+.play-button {
+    background-color: #ffc107;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: #ffca28;
+}
+
+/* Lecture content (initially hidden) */
+.lecture-content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Styling for the download button */
+.download-button {
+    display: block;
+    margin-top: 10px;
+    background-color: #ffc107;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #ffca28;
+}
+
+/* Video styling */
+video {
+    width: 100%;
+    border-radius: 10px;
+}

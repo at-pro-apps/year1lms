@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Page</title>
+    <link rel="stylesheet" href="appcss - Copy (2).css"> <!-- Updated CSS file name -->
+
+    <!-- Firebase CDN Scripts for browser -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics-compat.js"></script>
+
+    <script>
+        // Firebase configuration (replace with your own config)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDHC7BiKbu7hFMfhInlIziHPAelNenjdMg",
+            authDomain: "shield-a35b5.firebaseapp.com",
+            projectId: "shield-a35b5",
+            storageBucket: "shield-a35b5.appspot.com",
+            messagingSenderId: "123110624345",
+            appId: "1:123110624345:web:6fd56c57489e0a713bb548",
+            measurementId: "G-2XV662RNRS"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        // Function to handle login and account creation
+        function handleLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Firebase create user with email and password
+            firebase.auth().createUserWithEmailAndPassword(username, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+
+                // Play success sound
+                const successSound = new Audio('notification-interface-success-positive-corrects-132471.mp3');
+                successSound.play();
+
+                alert("Account created successfully for: " + user.email);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert("Error: " + errorMessage);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Background Image -->
+        <img src="BG.png" alt="Background" class="background">
+
+        <!-- Login Box -->
+        <div class="login-content">
+            <img src="Login Box.png" alt="Login Box" class="login-box">
+
+            <!-- Faculty Photo (Right-Side) -->
+            <img src="Login FACULTY PHOTO.png" alt="Faculty Photo" class="faculty-photo">
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-form">
+            <div class="input-group">
+                <label for="username" class="input-label">
+                    <img src="username-icon.png" alt="Username Icon" class="input-icon"> <!-- Adjust icon source as needed -->
+                    Username
+                </label>
+                <input type="email" id="username" placeholder="Enter your email" class="input-field">
+            </div>
+            <div class="input-group">
+                <label for="password" class="input-label">
+                    <img src="password-icon.png" alt="Password Icon" class="input-icon"> <!-- Adjust icon source as needed -->
+                    Password
+                </label>
+                <input type="password" id="password" placeholder="Enter your password" class="input-field">
+            </div>
+            <button class="login-btn" onclick="handleLogin()">Create Account</button>
+        </div>
+    </div>
+
+    <script src="appscript.js"></script> <!-- Updated JavaScript file name -->
+</body>
+</html>
